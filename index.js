@@ -138,9 +138,9 @@
    		for ( var face = 0; face < faces; face ++ ) {
 
    			var start = dataOffset + face * faceLength;
-   			var normalX = reader.getFloat32( start, true );
-   			var normalY = reader.getFloat32( start + 4, true );
-   			var normalZ = reader.getFloat32( start + 8, true );
+   			var normalX = reader.getFloat32( start + 8, true );
+   			var normalY = reader.getFloat32( start + 0, true );
+   			var normalZ = reader.getFloat32( start + 4, true );
 
    			if ( hasColors ) {
 
@@ -168,9 +168,9 @@
 
    				var vertexstart = start + i * 12;
 
-   				vertices.push( reader.getFloat32( vertexstart, true ) );
+   				vertices.push( reader.getFloat32( vertexstart+8, true ) );
+   				vertices.push( reader.getFloat32( vertexstart + 0, true ) );
    				vertices.push( reader.getFloat32( vertexstart + 4, true ) );
-   				vertices.push( reader.getFloat32( vertexstart + 8, true ) );
 
    				normals.push( normalX, normalY, normalZ );
 
